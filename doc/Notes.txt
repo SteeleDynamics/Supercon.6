@@ -1,0 +1,13 @@
+# get group id for /dev/ttyUSB0
+stat /dev/ttyUSB0
+
+# add user to assoc. group
+sudo usermod -a -G uucp rmsteele
+
+# logout and login...
+
+# set /dev/ttyUSB0 file to raw mode
+stty -F /dev/ttyUSB0 raw
+
+# write hex file to device
+cat foo.hex > /dev/ttyUSB0
